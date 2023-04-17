@@ -1,0 +1,626 @@
+\documentclass{rstb}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+%\usepackage{natbib}
+%\usepackage[style=nature,citestyle=authoryear,natbib=true]{biblatex}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{lineno}
+
+ %TC:incbib
+
+\def\titlehead{Research}%%Please insert respective article type here
+\Journal{Phil. Trans. R. Soc. B\ }
+\begin{document}
+\title{Playing the political game: The co-evolution of institutions with group size and political inequality}
+\author{Simon T.Powers$^{1}$, Cedric Perret$^{2}$ and Thomas E. Currie$^{2}$}
+\address{$^{1}$Edinburgh Napier University, Edinburgh EH10 5DT\\ 
+$^{2}$University of Exeter, Penryn TR10 9FE}
+\subject{}
+\corres{Simon T. Powers}
+\begin{abstract}
+
+\noindent All societies need to form institutional rules to regulate their social interactions. These specify what actions individuals should take in particular situations, and what sanctions will apply if individuals violate these rules. But forming these institutional rules involves playing a political game -- a process of negotiation between individuals that is costly and time consuming. Intuitively, this cost should be expected to increase as a group becomes larger, which could then select for a transition to hierarchy to keep the cost of playing the political game down as group size increases. However, previous work has lacked a mechanistic yet general model of political games that could formalise this argument and test the conditions under which it holds. We address this by formalising the political game using a standard consensus formation model. We show that the increasing cost of forming a consensus over institutional rules selects for a transition from egalitarian to hierarchical organisation over a wide range of conditions. Playing a political game to form institutional rules in this way captures and unites a previously disparate set of voluntary theories for hierarchy formation, and can explain why the increasing group size in the Neolithic would lead to strong political inequality.
+\end{abstract}
+\keywords{Institutions, cooperation, hierarchy, punishment, political inequality}
+
+\rsbreak
+
+
+\begin{linenumbers}
+
+\section{Introduction}
+All societies, from hunter-gatherers to modern liberal democracies, are governed by institutional rules \cite{North:1990:a,Ostrom:1990:a} that help to coordinate individuals, promote cooperative behaviour, and resolve social dilemmas \cite{Greif:2006:a,Singh:2017:a,Powers:2021:a}. Many hunter-gatherer societies have rules that regulate the conditions under which individuals should give food to others \cite{Kaplan:2009:a}. For example, the !Kung Bushmen have a rule that says that the owner of the first arrow that penetrates the animal controls distribution after a cooperative hunt \cite{Testart:1987:a},  Likewise, societies that have developed irrigation systems have rules that specify how much water an individual farmer may take and when, and how much they should contribute to maintaining the system \cite{Ostrom:1990:a,Guala:2012:a}. These rules are often enforced by systems of monitoring and sanctioning \cite{Powers:2021:a}. These range from gossip, ridicule, and ostracism in hunter-gatherers \cite{Boehm:1999:a}, through to third-party punishment by the state in liberal democracies. Economics has long studied the effects that institutional rules have on incentivising cooperative social behaviour amongst self-interested agents (e.g. \cite{North:1990:a,Reiter:1996:a,Greif:2006:a}). Indeed, it is even  argued that the main determinant of whether a nation is poor or prosperous is the type of institutional rules governing the society, and whether these successfully incentivise cooperative division of labour and trade \cite{Acemoglu:2011:a}. 
+
+Perhaps the most prominent pattern in human history has involved changes in the institutional arrangements that govern human socio-political organisation. As societies increased in size following the origin of agriculture and the Neolithic Demographic Transition \cite{Bocquet-Appel:2011:a}, they switched from egalitarian to hierarchical organisation \cite{Boehm:1999:a,Price:1995:a,Price:2010:a}. Here, we consider hierarchy as a skewed influence in decision-making, such that a minority of individuals -- leaders -- have a disproportionate influence in the decision a group takes. Analyses of a global, long-term historical and archaeological, database show that the number of hierarchical levels of organization, and the complexity, of other governance institutions increased as the population size of polities also increased \cite{Turchin:2018:a}. One potential explanation for this relationship between hierarchical organisation and the size of groups relates to the fact as group size increases, coordination problems such as deciding on institutional rules become more difficult to solve -- a general phenomenon known as scalar stress \cite{Johnson:1982:a}. Hierarchy is potentially a means by which groups can overcome these problems and be able to make and enforce decisions more efficiently. For example, in the Enga of Papua New Guinea, clans, which generally incorporate a few hundred individuals, make decisions about how to act in relationships with other groups through whole clan meetings. These meetings require consensus to be reached amongst all male members of the clan \cite{Johnson:2000:A}. In modern countries, with populations in the millions, such consensus would be almost impossible, and only a small subset of individuals act as political leaders, who formally spend their time negotiating over and deciding institutional rules.  
+
+
+In this paper, we examine the hypothesis that as group size increased during the Neolithic, the process of discussing, negotiating, and deciding on institutional rules became more and more costly for egalitarian groups. This could then select for a transition to hierarchical organisation to allow groups to continue to grow in size while reducing the cost of rule formation \cite{North:1990:a,Fukuyama:2011:a}. We use ``group size'' here to mean the size of the unit engaged in collective action. While the empirical relationships between hierarchical organisation and group size are well established, a key research challenge in fields such as anthropology, archaeology, political science, and economic history, is understanding how institutional rules are formed and evolve. Yet despite the importance of these issues, relatively little work has been done in these disciplines in formally modelling the processes of institutional rule formation. For example, cultural group selection models have considered how certain institutional rules might give one group an advantage over another \cite{Richerson:2016:a}, but have typically not considered how institutional rules are formed within a single group. 
+
+Recently, some researchers have taken a game theoretic perspective to modelling the evolution of institutional rules \cite{Powers:2013:a,Currie:2021:a,Gavrilets:2022:a}. This has drawn on work from economics that proposes a meta-model of institutional rule formation \cite{Hurwicz:1996:a,Reiter:1996:a}. This meta-model separates social interactions within a group into an economic game and a political game \cite{Powers:2016:a}. In the economic game, individuals have social interactions that directly affect their material payoff (calorie intake, size of shelter, etc.). Examples include choosing whether to join a cooperative hunting party, how much food to share with other group members, how much water to take from an irrigation system, and whether or not to pay taxes. This is the standard type of game studied in evolutionary anthropology, archaeology, and biology, and might be modelled as a public goods or prisoner's dilemma game, for example. However, in addition to this, group members also engage in a political game that sets the rules of this economic game. For example, how much water should each group member take from an irrigation system, how will this be monitored, and what will the sanctions be for taking more than the rules permit? The rules that result from the political game are known as the institutional rules, and determine the effective payoff matrix (or more formally, the game form, \cite{Hurwicz:1996:a}) of the economic game. Consequently, they determine the the extent to which self-interested individuals who are trying to maximise their material payoff will cooperate \cite{Greif:2006:a,Powers:2021:a}. 
+
+Political games essentially involve individuals discussing, negotiating over, and deciding about how people should behave in their economic interactions \cite{Powers:2016:a}. This most obviously occurs in liberal democracies and states such as ancient Athens \cite{Ober:2008:a}, where formal assemblies of representatives of the rest of the population debate over codified laws that govern economic interactions \cite{Reiter:1996:a}. But at the other end of the scale, hunter-gatherer societies spend a vast amount of time discussing the rules of their society and whether individuals are complying with them \cite{Boehm:1999:a}. For example, in the Mae Enga clan meetings are used to reach consensus about relationships with other groups (warfare or trade), while other activities and situations are discussed within the lower level of sub-clans. In Lamalera, Indonesia, an annual ceremony (Tobo Nam\~{a} Fata) precedes the whaling season \cite{Alvard:2002:a}. The ceremony involves the boat owners, harpooners, and master carpenters who have to coordinate their activities and receive shares of a successful hunt. They are joined at the ceremony by clan leaders, and the attendants discuss any problems or conflicts that occurred in the previous whaling season, and potentially establish new norms to clarify situations in the future. The political game can thus be more or less formal. Crucially, it may involve all or only a subset of group members. In egalitarian societies, most individuals might take part in negotiating over rules, while in hierarchical societies only elites (e.g. the leader and their kin) might take part. In either case, we would expect individuals to try and influence the political game to produce rules that will benefit themselves. In other words, individuals will have a strategy in the political game, i.e. a preference for the rules that they would like to see be implemented. Note that we do not need to assume that individuals are fully rational and completely aware of the consequences of their decisions to be able to play a political game in this way. Trial-and-error, or cultural evolution through payoff-biased social learning \cite{Boyd:1985:a}, will over time lead individuals to adopt strategies in the political game that produce rules which increase their material payoff in the economic game. 
+
+However, previous work has largely ignored the cost to individuals of playing the political game. Playing a political game -- bartering and negotiating over rules -- clearly carries an opportunity cost for the individuals involved. Simply put, time spent negotiating and trying to convince others is time that could otherwise be spent on productive economic activities such as hunting, fishing or farming (i.e. playing the economic game for material payoff). To be able to address this, we need a model of the political game that is general enough to capture many ways in which rules are created, debated, and modified across different societies and contexts, while being mechanistic enough to demonstrate how the cost of rule formation increases with group size. In previous work, political games have generally been modelled very abstractly in a way that does not allow the relationship between their cost and group size to be analysed. Some models have only considered institutional rules as group-level traits that change by unspecified (effectively random) processes within groups followed by group competition \cite{Turchin:2013:a,Richerson:2016:a}. Other models have captured the political game within a group as simply taking the mean preference of the group members \cite{Powers:2013:a,Powers:2018:a}, or taking a majority vote \cite{Currie:2021:a}. None of these are detailed enough to show how the cost of rule formation scales with group size. 
+
+Here, we overcome this limitation by using a standard consensus formation model \cite{Gavrilets:2016:a,Perret:2022:a} to capture the political game. In a consensus formation model, individuals start with an initial opinion, and then modify this based on interactions with other individuals until a consensus is reached where the variance of their opinions is less than some threshold. How much individuals sway the consensus towards their own opinion depends on their \emph{influence} relative to the influence of other individuals -- the consensus is closer to the opinion of individuals with higher influence. Variation in influence can be due to endogeneous differences in personality traits such as persuasiveness, stubbornness and talkativeness \cite{Johnstone:2011:a,Gavrilets:2016:a,Perret:2022:a}, or exogeneous differences in wealth or social network size \cite{vonReuden:2014:a}.  In an egalitarian group, each individual would have roughly the same influence, while in a hierarchical group leaders would have a higher influence than followers. Crucially, the time it takes to reach consensus depends on the distribution of influence -- if all individuals have similar influence, i.e. the group is egalitarian, then it will take longer to reach consensus than if a few individuals have much higher influence, i.e. the group is hierarchical \cite{Gavrilets:2016:a,Perret:2020:a}. Moreover, previous work has shown that consensus time increases with group size, and at a faster rate in egalitarian compared to hierarchical groups \cite{Perret:2020:a}.
+
+By considering the influence of an individual as an evolvable trait, and considering the time to reach consensus as an opportunity cost of playing the political game that is subtracted from individual fitness, we can demonstrate conditions under which evolution will lead to egalitarian or hierarchical organisation in response to the demands of rule formation. To do this, we build on an existing model of the co-evolution of institutions, demography and cooperation during the Neolithic \cite{Powers:2013:a}. This demonstrated conditions under which institutional rules for punishment co-evolved with group size to support the transition from small-scale to large-scale cooperative groups. However, it considered a fixed cost of playing the political game, which was an exogeneous parameter. Here, we replace that abstract model of the political game with a consensus formation model, and also allow individuals to evolve their influence. 
+
+\section{Model description}
+Our model builds upon the model of the co-evolution of institutions, demography and large-scale cooperation presented in \cite{Powers:2013:a}. In that model, individuals live on a number $N_\mathrm{p}$, of resource patches connected by migration, and can be either social or asocial. Social individuals agree to form an institution on their patch, and then play a public goods game regulated by the institutional rules. Asocial individuals, on the other hand, do not take part in institution formation or the public goods game. The inclusion of asocial individuals allows the model to demonstrate the origin of an institution, by showing conditions under which self-interested individuals would choose to form an institution. 
+
+The institutional rules, $p_j$, specify how much of the public good generated by social individuals on their patch $j$ is invested into monitoring and punishment of defectors -- individuals who do not cooperate in the public goods game. This share of the public good is used to pay for monitoring and sanctioning. This corresponds to situations where groups can create institutional rules that incentivise individuals to monitor and sanction others \cite{Baumard:2010:a}, rather than monitoring and sanctioning being altruistic acts (i.e. sanctioning is not altruistic as in \cite{Boyd:2003:a}, but provides direct benefits to those doing it \cite{Powers:2016:a,Powers:2021:a}). For example, Ostrom describes how in the Spanish \textit{huerta} irrigation systems, some group members are nominated to act as monitors by their peers, and are further incentivised to catch defectors by being able to keep a third of the fine levied on any defector they catch \cite{Ostrom:1990:a}. So rather than being individually costly, as in classic models of peer-punishment, these institutional rules turn sanctioning into a profitable activity for some individuals. This issue is discussed in more detail in the presentation of the original model \cite{Powers:2013:a}. Further empirical examples of institutional rules covering the costs of monitoring and sanctioning are discussed in \cite{Guala:2012:a}. While we do not explicitly model the individual monitoring and sanctioning role here (but see \cite{Powers:2018:b} for such a model), our model captures this role of institutional rules in a high-level manner, allowing us to focus our analysis on the political game.
+
+The remaining share of social individuals' public good, $1-p_j$, is invested into producing technology that increases the carrying capacity of all social individuals on the patch, e.g. an irrigation system. In \cite{Powers:2013:a}, the institutional rules $p_j$ were formed by taking the mean preference of all social individuals on the patch, and all social individuals payed a fixed opportunity cost $I$ for doing this compared to asocials. This represented the political game. 
+
+The results were that if patches started off at a small size (around 20 individuals) then social individuals could invade a population of asocials, and evolved to create institutional rules that selected for high levels of cooperation. Specifically, individuals evolved their own preferences for the rules to invest most of their public good into technology that raised their carrying capacity, while investing just enough (around 15 to 20 percent) into monitoring and punishment to prevent defection in the public goods game from being individually advantageous. This occurred because individuals in patches with these kinds of rules had more offspring compared to asocials, and compared to individuals on patches with other institutional rules that invested either so much into monitoring and punishment that they lost the benefits of producing technology, or so little that social defectors outcompeted cooperators. Groups with these optimal institutional rules then grew in size (up to hundreds of individuals) due to technology increasing their carrying capacity, capturing the demographic transition from small to large groups that occurred during the Neolithic.
+
+We now go on to provide a complete specification of the model, focusing on how we reimplement the political game with a consensus formation model, and on how we now allow individuals to evolve their influence, and hence the level of hierarchy on their patch.
+\subsection{Lifecycle and population structure}
+
+The lifecycle and population structure follows that in \cite{Powers:2013:a}. The population is subdivided into a finite number, $N_\mathrm{p}$, of resource patches, that are connected by migration following Wright's finite island model of dispersal \cite{Wright:1931:a}. The lifecycle of individuals consists of discrete and non-overlapping generations, as follows. (1) Local interactions occur on each patch, with social individuals forming institutional rules and playing a public goods game in which they can either cooperate or defect. (2) Each individual $i$ on patch $j$ has a Poisson distributed number of offspring that survive to adulthood, with the mean of the distribution being determined by the local social interactions and resource abundance (defined explicitly below). (3) Adults of the previous generation perish. (4) Each individual of the descendant generation migrants to a randomly chosen patch with probability $m$, or otherwise remains on its natal patch. 
+
+\subsection{Evolving traits}
+
+Individuals carry three cultural traits that are transmitted vertically from parent to offspring. This kind of transmission of cultural traits such as preferences and values from parents to offspring is common in both hunter-gatherer groups \cite{Hewlett:2011:a} and modern societies \cite{Cavalli-Sforza:1981:a}. The first trait, $\tau_{ij}$, is discrete and determines the social type of the individual. That is, whether the individual is \emph{asocial}, $\tau_{ij}=\mathrm{a}$ (does not take part in institution formation, receive no public good, and are not sanctioned), a social \emph{cooperator}, $\tau_{ij}=\mathrm{c}$ (takes part in institution formation and cooperates in the public goods game), or a social \emph{defector}, $\tau_{ij}=\mathrm{d}$ (takes part in institution formation but defects in the public goods game by not contributing). Mutation occurs on this trait with probability $\mu_\mathrm{\tau}$ by switching to one of the other two values chosen at random.
+
+The second trait, $p_{ij}$, determines the intrinsic preference that the individual has for the institutional rules, specifically, the proportion of the public good on its patch that it thinks should be used to pay for the monitoring and punishment of defectors, as opposed to invested in technology. This trait is continuous in the range $[0,1]$. 
+
+In this paper we add a third trait, $\alpha_{ij}$, which determines the influence of the individual in the consensus formation process (political game). This is also continuous in the range $[0,1]$. A larger value of $\alpha_{ij}$ means that the individual is more stubborn and persuasive when discussing with other individuals about what the institutional rules should be \cite{Gavrilets:2016:a,Perret:2020:a,Perret:2022:a}. For both $p_{ij}$ and $\alpha_{ij}$, mutation changes the trait value according to a truncated normally distributed random variable (with variance $\sigma$), centred around the current trait value. Mutation occurs on these traits with probabilities $\mu_\mathrm{p}$ and $\mu_\mathrm{\alpha}$, respectively. We assume a higher mutation rate for $p_{ij}$ than for the other traits. Asocials carry the $p_{ij}$ and  $\alpha_{ij}$ traits, but do not express them. 
+
+\subsection{Individual fitness}
+Following \cite{Powers:2013:a}, the expected number $w_{\tau j}(t_\mathrm{g})$ of offspring that survive to adulthood (fitness) produced by an individual of type $\tau \in\{\mathrm{a},\mathrm{c},\mathrm{d}\}$ (asocial, cooperator, and defector, respectively) in patch $j$ at time $t_\mathrm{g}$ (where the subscript $g$ denotes generational time) is assumed to follow a discrete time Beverton-Holt model (e.g. \cite{Chow:2012:a}) with two niches, social and asocial. The degree of competition between these niches is set by two parameters, $\eta_{\mathrm{as}}$ and $\eta_{\mathrm{sa}}$, which give the per capita effect of socials on asocials' fitness, and asocials on socials' fitness, respectively. According to these assumptions, we write the fitnesses of the three types on patch $j$ at time $t_\mathrm{g}$ as
+\begin{linenomath}
+\begin{align}
+\label{eqnwl}
+w_{\mathrm{a}j}(t_\mathrm{g}) &= \frac{r_{\mathrm{a}}}{1 + n_{\mathrm{a}j}(t_\mathrm{g})/K_\mathrm{a}+\eta_{\mathrm{as}}\left[n_{\mathrm{c}j}(t_\mathrm{g})+n_{\mathrm{d}j}(t_\mathrm{g})\right]}  \nonumber\\
+w_{\mathrm{c}j}(t_\mathrm{g}) &= \frac{r_{\mathrm{c}}}{1 + \left[n_{\mathrm{c}j}(t_\mathrm{g})+n_{\mathrm{d}j}(t_\mathrm{g}) \right]/K_{\mathrm{s}j}(t_\mathrm{g}) +\eta_{\mathrm{sa}}n_{\mathrm{a}j}(t_\mathrm{g})}\nonumber\\
+w_{\mathrm{d}j}(t_\mathrm{g}) &= \frac{r_{\mathrm{d}j}(t_\mathrm{g})}{1 + \left[n_{\mathrm{c}j}(t_\mathrm{g})+n_{\mathrm{d}j}(t_\mathrm{g})\right]/K_{\mathrm{s}j}(t_\mathrm{g}) +\eta_{\mathrm{sa}}n_{\mathrm{a}j}(t_\mathrm{g})}, 
+\end{align}
+\end{linenomath}
+where $n_{\tau j}(t_\mathrm{g})$ is the number of individuals of type $\tau$ on patch $j$ at time $t_\mathrm{g}$. The numerator in each expression can be thought of as the maximal growth rate of an individual of the corresponding type, while the denominator as the intensity of density-dependent competition faced by that individual. This Beverton-Holt fitness model is demographically explicit, and so allows us to capture the feedback between group size and cooperation, institutional rules and hierarchy. 
+
+We now detail the parameters in the above fitness functions.
+
+\subsection{The economic game: Cooperation and institutionally-arranged punishment}
+First, $r_{\mathrm{a}}$  ($\geq 0$) is the maximal growth rate of an asocial type. The maximal growth rate of a cooperator is assumed to be given by
+\begin{linenomath}
+\begin{align}
+r_{\mathrm{c}j}\left(t_\mathrm{g}\right)&=r_{\mathrm{a}} -\iota_j(t_\mathrm{g}) -C \label{eqnrc},
+\end{align}
+\end{linenomath}
+where $\iota_j(t_\mathrm{g})$ ($\geq 0$) is the cost of participating in deciding institutional rules via consensus formation (defined below), while $C$ ($\geq 0$) is the individual cost of producing an amount $B$ of public good. This entails that an amount $n_{\mathrm{c}j}(t_\mathrm{g})B$ of public good is created on patch $j$ by cooperators, which can be devoted to resource enhancement via production of technology, or to monitoring and punishment of defectors. Social defectors participate in institution formation but do not contribute to the public good, and can be punished for this. We assume that the maximal growth rate of a defector is 
+\begin{linenomath}
+\begin{align}
+r_{\mathrm{d}j}(t_\mathrm{g})&=r_{\mathrm{a}} -\iota_j(t_\mathrm{g})  - \frac{p_j(t_\mathrm{g})n_{\mathrm{c}j}(t_\mathrm{g})B}{n_{\mathrm{d}j}\left(t_\mathrm{g}\right)} \label{eqnrd},
+\end{align}
+\end{linenomath}
+where $p_j(t_\mathrm{g})$ is the proportion of the public good produced on patch $j$ devoted to punishment. 
+
+The remainder of the public good not used for punishment, $(1-p_j(t_\mathrm{g})) n_{\mathrm{c}j}(t_\mathrm{g})B$, is used to increase the carrying capacity of social individuals (both cooperators and defectors), $K_{\mathrm{s}j}$, above the baseline carrying capacity of asocials (a fixed parameter $K_\mathrm{a}$):
+\begin{linenomath*}
+\begin{equation}
+K_{\mathrm{s}j}(t_\mathrm{g}) = K_\mathrm{a} + \beta \left[1-\exp \left(-\gamma (1-p_j(t_\mathrm{g}))n_{\mathrm{c}j}(t_\mathrm{g})B \right) \right]\label{eqnKg}.
+\end{equation}
+\end{linenomath*}
+
+ This gives a maximal possible increase in carrying capacity of $\beta$. The parameter $\gamma$ sets the gradient of the increase in carrying capacity with respect to investment of the public good in technology.
+
+\subsection{The political game: Setting institutional rules via consensus formation} 
+To complete the model specification, we need to specify how $p_j(t_\mathrm{g})$ is formed from the preferences $p_{ij}(t_\mathrm{g})$ of social individuals, i.e. the political game, and to specify the cost to social individuals $\iota_j(t_\mathrm{g})$ arising from doing this. To do this, we use a standard consensus formation model \cite{Gavrilets:2016:a,Perret:2020:a,Perret:2022:a}.
+
+Each social individual $i$ has a current \emph{opinion}, $x_{ij}(t_{\mathrm{p}j})$, about what the value of $p_j(t_\mathrm{g})$ should be on their patch, where $t_{\mathrm{p}j}$ represents a time-step in the political game on patch $j$ (i.e. within a generation $t_\mathrm{g}$). At the start of the political game $x_{ij}(0)=p_{ij}(t_\mathrm{g})$, i.e. each individual starts out with their own intrinsic preference that they inherited from their parent. Through discussing with other social individuals on their patch, they may then modify their current opinion $x_{ij}(t_{\mathrm{p}j})$ away from their inherited preference, $p_{ij}(t_\mathrm{g})$, until a consensus for the institutional rules $p_j(t_\mathrm{g})$ is reached.
+
+At each time-step $t_{\mathrm{p}j}$ of the political game, one social individual is chosen to be a \emph{speaker}, who talks to multiple other social individuals on the patch known as \emph{listeners}. The probability $\rho_{ij}(t_\mathrm{p})$ of individual $i$ on patch $j$ to be chosen as a speaker is an increasing function of its $\alpha$ value as follows:
+\begin{equation}
+\rho_{ij}(t_{\mathrm{p}j})=\frac{s_{ij}(t_\mathrm{g})\alpha_{ij}(t_\mathrm{g})^\lambda}{{\sum_{i=1}^{n_j(t_\mathrm{g})}}\left(s_{ij}(t_\mathrm{g})\alpha_{ij}\left(t_\mathrm{g}\right)\right)^\lambda},
+\label{eqnProbSpeaker}
+\end{equation}
+where $s_{ij}(t_\mathrm{g})=1$ if individual $i$ on patch $j$ is social, and 0 otherwise, and $n_{j}(t_\mathrm{g})=n_{\mathrm{c}j}(t_\mathrm{g})+n_{\mathrm{d}j}(t_\mathrm{g})+n_{\mathrm{a}j}(t_\mathrm{g})$ is the total number of individuals on patch $j$. Social individuals with high $\alpha$ values compared to the mean are thus \emph{leaders} -- they are more likely to be selected to be a speaker, i.e. they are more talkative. Social individuals with lower $\alpha$ values are then \emph{followers}. The degree of \emph{hierarchy} is measured by positive skew of the distribution of $\alpha$ among social individuals on the patch. The skewness is measured by Pearson's moment coefficient of skewness.
+
+The exponent $\lambda$ defines how much the difference in influence is translated into a difference in the probability to talk. Following \cite{Perret:2020:a}, throughout this paper we set $\lambda = 4$ so that in a group of $1000$ individuals with the most extreme hierarchy (one individual with very high $\alpha$ and the rest with very low $\alpha$), the probability that a leader is chosen as a speaker is very high (close to $90\%$). 
+
+The speaker talks with $N_\mathrm{l}$ listeners at time $t_{\mathrm{p}j}$, sampled at random from among the other social individuals on the patch. During this discussion event, each listener $\mathrm{v}$ updates its opinion to a value following the equation below, where $\mathrm{v}$ represents the listener and $\mathrm{u}$ the speaker:
+\begin{equation}
+x_\mathrm{v}(t_{\mathrm{p}j}+1) = x_\mathrm{v}(t_{\mathrm{p}j}) + (\alpha_\mathrm{u}-\alpha_\mathrm{v})(x_\mathrm{u}(t_{\mathrm{p}j}) - x_\mathrm{v}(t_{\mathrm{p}j})).
+\label{eqnUpdate}
+\end{equation}
+How much the listener is influenced by the speaker depends on the difference in their $\alpha$ values. We also assume that the position of speaker gives a slight influential advantage over the listeners. Therefore, the minimum difference of influence $\alpha_\mathrm{u}-\alpha_\mathrm{v}$ is set to a positive low value ($0.01$). At the next time-step, $t_{\mathrm{p}j}+1$, an individual is again chosen to be the speaker according to Equation~\ref{eqnProbSpeaker} (which may be the same individual chosen in the previous time-step, e.g. if there is a high positive skew of $\alpha$ on the patch). $N_l$ social individuals are then chosen to be listeners, and update their opinions according to Equation~\ref{eqnUpdate}. 
+
+
+At the end of each time-step, the following condition is evaluated, and the political game ends if it is true:
+\begin{equation}
+    \sigma_x(t_{\mathrm{p}j}) < x_\mathrm{thr}.
+    \label{eqnConsensus}
+\end{equation}
+This condition says that consensus is reached when the standard deviation of the opinions of social individuals $\sigma_x(t_{\mathrm{p}j})$ is less than a threshold $x_\mathrm{thr}$. The number of discussion events that occurred to reach consensus is called the consensus time, $t_{\mathrm{p}j}*$. The value of $p_j(t_\mathrm{g})$ agreed by the individuals is then the mean of the current \emph{opinions} at consensus of the social individuals on the patch:
+\begin{equation}
+    p_j(t_\mathrm{g}) = \frac{1}{n_{\mathrm{c}j}(t_\mathrm{g})+n_{\mathrm{d}j}(t_\mathrm{g})} \sum_{i=1}^{n_{j}(t_\mathrm{g})} s_{ij}(t_\mathrm{g})x_{ij}(t_{\mathrm{p}j}^*).
+    \label{eqnFinalP}
+\end{equation}
+The cost of playing the political game, $\iota_j(t_\mathrm{g})$, then depends upon the number of time-steps taken to reach consensus, $t_{\mathrm{p}j}^*$, as follows:
+\begin{equation}
+    \iota_j(t_\mathrm{g}) = I t_{\mathrm{p}j}^*,
+    \label{eqnInstCost}
+\end{equation}
+where $I$ is a parameter that scales the consensus time into a growth rate cost in Equations~\ref{eqnrc} and \ref{eqnrd}.
+
+Finally, we note that although individuals modify their expressed opinion $x_{ij}$ during the political game to try to reach consensus, they still pass on their original preference $p_{ij}$ to their offspring. In other words, although individuals may compromise in the political game, they still have their own preferences for what they would have liked the outcome to be, and these evolve on a slower timescale (over generations in our model). This assumption is supported by work in political science which i) recognises that choices that are made in collective decision-making circumstances can be different from individual preferences that might be made in isolation \cite{Druckman:2000:a}, and ii) provides evidence that political attitudes are shaped via both genetic and environmental processes of inheritance from parents-to-offspring \cite{Hatemi:2009:a}.
+
+\section{Results}
+Due to the strong non-linearity of our model, we analyse the stochastic process by means of individual-based simulations. The baseline parameters used for the simulations, unless otherwise specified, are given in Table~\ref{tabModParams}. In all simulations, we start the population with 100\% asocial individuals, with their carrying capacity of $K_\mathrm{a}=20$. These initial individuals have random generated values for their $p_{ij}$ and $\alpha_{ij}$ traits, so that the population starts with no particular preference for the institutional rules, and no hierarchy. We then determine conditions under which social individuals invade and establish institutional rules that select for cooperation and increase in group size ($K_{\mathrm{s}j}$), and examine the range of conditions where this leads to the evolution of hierarchy. 
+
+\begin{table*}[!p]
+	\centering
+	\caption{Baseline parameter settings, chosen to match the original model \cite{Powers:2013:a} and previous work on consensus formation \cite{Perret:2020:a}.}
+		\begin{tabular}{|p{4.5in}|l|}
+		\hline
+		\textbf{Parameter} & \textbf{Value} \\ \hline
+		Cost of cooperating, $C$ & 0.1 \\ \hline
+		Base growth rate, $r_{\mathrm{a}}$ & 2 \\ \hline
+            Base carrying capacity, $K_{\mathrm{a}}$ & 20 \\ \hline
+            Threshold variance in opinions to reach consensus,  $x_\mathrm{thr}$ & 0.03 \\ \hline
+            Number of listeners during a discussion event, $N_\mathrm{l}$ & 30 \\ \hline
+            Difference in influence exponent, $\lambda$ & 4 \\ \hline
+            Consensus time cost scalar, $I$ & 0.01 \\ \hline
+		Per capita effect of asocial individuals upon socials, $\eta_{\mathrm{sa}}$ & 0.05 \\ \hline
+		Per capita effect of social individual upon asocials, $\eta_{\mathrm{as}}$ & 0.05 \\ \hline
+		Maximum increase in carrying capacity due to cooperation, $\beta$ & 300 \\ \hline
+		Mutation rate on $\tau$, $\mu_\mathrm{\tau}$ & 0.01 \\ \hline
+            Mutation rate on $p$, $\mu_\mathrm{p}$ & 0.02 \\ \hline
+            Mutation rate on $\alpha$, $\mu_\mathrm{\alpha}$ & 0.01 \\ \hline
+		Variance of normal distribution used for mutations on $p$ and $\alpha$, $\sigma$ & 0.1 \\ \hline
+		Number of patches, $N_\mathrm{p}$ & 50 \\ \hline	
+		\end{tabular}
+	
+	\label{tabModParams}
+\end{table*} 
+
+Figure~\ref{figBaseline} illustrates the dynamics of the model on a single run with the baseline parameters in Table~\ref{tabModParams}. The results show that socials invade a population of asocials (Figure~\ref{figBaseline}.B). Moreover, we see both the evolution of cooperation (Figure~\ref{figBaseline}.B), increasing group size (mean $K_{\mathrm{s}j}$ across patches, Figure~\ref{figBaseline}.A), and the evolution of hierarchy (increased skew in $\alpha_{ij}$ on patches, Figure~\ref{figBaseline}.E ). This happens because if social individuals cooperate, they will outcompete asocial individuals on their patch. This is because they will produce a public good that is used to increase their carrying capacity (Equation~\ref{eqnKg}) above that of asocials ($K_\mathrm{a}$), which then leads to suppressed reproduction and ultimately extinction of asocials on their patch (Equation~\ref{eqnwl}). 
+
+But why is cooperation then favoured rather than defection among socials? Cooperation will be favoured when $r_\mathrm{c}>r_\mathrm{d}$. From Equations~\ref{eqnrc} and Equation~\ref{eqnrd}, we can see that this is when the cost of cooperating is less than the cost of being punished for defecting \cite{Boyd:1992:a}, i.e. when $C < \frac{p_j(t_\mathrm{g})n_{\mathrm{c}j}(t_\mathrm{g})B}{n_{\mathrm{d}j}\left(t_\mathrm{g}\right)}$. This crucially depends on the institutional rules, i.e. the value of $p_j(t_\mathrm{g})$. Figure~\ref{figBaseline}.D shows that groups evolve, via the preferences of social individuals $p_{ij}$, to invest some of their public good into punishment, allowing the condition to hold true. However, successful groups do not invest too much into punishment, as this is inefficient. The most successful groups invest just enough into punishment to incentivise cooperation in their group, and use the remainder to increase their carrying capacity and hence the number of offspring their members have (Equation~\ref{eqnKg}). These groups grow to a larger size, and so export a larger number of migrants to other groups. The migrants carry their preferences for their successful institutional rules, $p_{ij}$ with them to their new groups, and so bias other groups towards having the same rules.  
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/pt_summary.pdf}
+    \caption{Illustration of the evolution of (A.) group size, (B.) frequency of each strategy, (C.) cost of political game, (D.) institutional rules and preferences and (E.) hierarchy measured by skewness, for the baseline model parameters in Table~\ref{tabModParams}. The results presented are means across either patches (A, C, D.``Rules'' and E), or all individuals in the population (B and D.``Preferences''), for a single run.}
+    \label{figBaseline}
+\end{figure}
+
+ The evolution of hierarchy occurs because the cost of playing the political game (Figure~\ref{figBaseline}.C), $\iota_j(t_\mathrm{g})$, depends on the time taken for the group to reach consensus on the institutional rules, $t_{\mathrm{p}j}^*$ (Equation~\ref{eqnInstCost}). The time taken to reach consensus in this standard consensus formation model increases with group size \cite{Perret:2020:a}. Moreover, \cite{Perret:2020:a} demonstrates that in this model the rate of increase in consensus time with group size depends upon the skew of $\alpha_{ij}$ values in the group. Groups with one or a small number of leaders -- individuals with $\alpha$ values much higher than the rest of their group -- increase their consensus time at a slower rate as their group size increases, compared to egalitarian groups which do not have this skew in the $\alpha$ traits of their members. As groups evolve cooperation-promoting institutions and grow in size from the benefits of cooperation, this creates selection pressure for hierarchy in order to reduce $\iota_j(t_\mathrm{g})$ (the mean value of this across groups is shown in Figure~\ref{figBaseline}.C). Figure~\ref{figBaseline}.E shows that hierarchy evolves as groups start to create institutions (Figure~\ref{figBaseline}.D) and increase in size (Figure~\ref{figBaseline}.A). As groups increase in size, social individuals in groups with hierarchy will have more offspring than social individuals in groups without hierarchy (Equations~\ref{eqnrc} and \ref{eqnrd}). This causes a spread of a positively-skewed distribution of $\alpha$ to different patches, with a minority of individuals evolving to act as leaders, and the rest as followers.
+
+ As a control, we ran a version of the model where it was not possible for hierarchy to evolve. To do this, we initialised the population so that every individual had $\alpha=0.5$, and then did not allow mutations on this trait. In this case, social individuals were unable to form cooperation-promoting institutions as their group size increased. Specifically, in the control the mean frequency of cooperation over 50 000 generations and 10 replicates was 0.14, compared to 0.91 in the base model. Likewise, the average group size ($K_\mathrm{s}$) was 28 in the control, compared to 147 in the base model. This demonstrates that in the model hierarchy is necessary to allow groups to maintain cooperation-promoting institutions as they grow in size, in order to reduce the cost of creating institutional rules via the political game of consensus formation. 
+
+An important effect of hierarchy is that the institutional rules reached by consensus, $p_j(t_\mathrm{g})$, are biased in favour of the preferences of leaders. This follows from Equation~\ref{eqnUpdate}, where how much a listener changes their opinion depends on the difference in the $\alpha$ values of the speaker and listener. Moreover, leaders with high $\alpha$ values are more likely to be chosen as speakers in the first place (Equation~\ref{eqnProbSpeaker}). The ``Punishment'' graph in Figure~\ref{figBaseline}.D shows the average (mean across patches) difference between the mean value of the preference $p_{ij}$ of individuals on the patch, and the actual value of the institutional rules, $p_j(t_\mathrm{g})$, reached at consensus. This difference occurs because leaders' $p$ preferences have the biggest effect on the consensus, and yet there are only a few such individuals on each patch. For the majority of individuals, who are followers, their $p_{ij}$ traits have much less effect on the consensus reached, and so they are under much less selection pressure. This allows them to drift to a certain degree. Supplementary Figure~S1 shows the correlation between the $\alpha_{ij}$ and $p_{ij}$ traits. The extent to which the consensus rules are dominated by the preferences of leaders is controlled by the parameter $x_\mathrm{thr}$, which we discuss in the next section. 
+
+Finally, Figure~\ref{figBaseline}.B shows that there are occasional spikes of defection. These occur when groups start to invest too little into punishment. Specifically, if a group has only cooperators then it can temporarily do very well by investing nothing into punishment and everything into increasing carrying capacity. This causes the group to grow to a larger size, and send out more migrants to other patches. However, once defectors arise either by mutation or migration they can quickly spread in such groups, causing the group to in turn lose the benefits of cooperation and hence reduce in size. At this point, groups evolve to invest more in punishment again, as migrants from more successful groups arrive with these preferences. Usually this process occurs rapidly, and so the global decline in cooperation is small and temporary. Occasionally, however, several groups can evolve to invest too little into punishment at the same time. In this case it takes longer for punishment to be restored by migration from other groups, causing a temporary global decline in punishment and cooperation.
+
+\subsection{The effect of the threshold necessary to reach consensus, $x_\mathrm{thr}$}
+The parameter $x_\mathrm{thr}$ specifies how close the opinions of social individuals have to be before consensus is reached, the political game ends, and $p_j(t_\mathrm{g})$ is set for their group (Equation~\ref{eqnConsensus}). It thus affects the time to reach consensus, and hence the cost of playing the political game. But moreover, it also affects the extent to which the consensus differs from the mean preference of the individuals. If $x_\mathrm{thr}=1$ then consensus is reached immediately, and so $p_j(t_\mathrm{g})$ is then given by the mean $p_{ij}$ of all social individuals on the patch. Conversely, the lower the value of $x_\mathrm{thr}$ then the greater the number of discussion events that need to take place before $\sigma_x(t_{\mathrm{p}j}) < x_\mathrm{thr}$ and consensus is reached. At each discussion event leaders are more likely to be chosen to speak than followers, and so the opinions of individuals are more likely to shift towards that of a leader than that of a follower. The more discussion events there are, the more times this shift in the opinion of followers is likely to occur, and so the agreed investment into punishment $p_j(t_\mathrm{g})$ at consensus will be closer to the preferences of leaders rather than followers. 
+
+Empirically, we can think of $x_\mathrm{thr}$ as representing how difficult the political game is, i.e. how close the opinions of individuals have to be before they will accept the consensus rules. A lower value of $x_\mathrm{thr}$ represents a more difficult political game. This would correspond to the political game producing rules for an economic game that is very important for the material payoff of group members, and so each group member has a high stake. A larger value of $x_\mathrm{thr}$ represents an easier political game, i.e. rules that have relatively little effect on the material payoff of group members.
+
+\begin{figure}, 
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/pt_xThr.pdf}
+    \caption{The effect of varying how difficult the political game is, as determined by the threshold variance in individual opinions necessary to reach consensus, $x_\mathrm{thr}$ on (A.) hierarchy, (B.) institutional rules and individual preferences, (C.) group size, and (D.) frequency of each strategy in the population. Lower $x_\mathrm{thr}$ represents a more difficult political game, in which individuals have a higher stake and so find it more difficult to reach consensus. The boxplots represent measures across 50 000 generations and 10 replicates, and are over patches. Error bars in plot (D.) represent the standard deviation.
+    }
+    \label{figXThr}
+\end{figure}
+
+Figure~\ref{figXThr} shows the effect of varying $x_\mathrm{thr}$ on the evolution of institutional rules (B), cooperation (D), group size (C) and hierarchy (A). For intermediate values of $x_\mathrm{thr}$ we find the same results as in Figure~\ref{figBaseline} -- social individuals invade a population of asocials (D) and establishing cooperation-promoting institutions (B), which lead to increasing group size (C) and hierarchy (A). For high values of $x_\mathrm{thr}$, cooperation-promoting institutions evolve and drive an increase in group size, but we no longer see the evolution of hierarchy. In these cases, the time to reach consensus is fast even without hierarchy, leading to a low cost of playing the political game (Equation~\ref{eqnInstCost}) even in large egalitarian groups. There is thus not enough benefit to having hierarchy on the political game to lead to the evolution of a skewed distribution of $\alpha_{ij}$. On the other hand, for very low values of $x_\mathrm{thr}$ groups are unable to evolve cooperation-promoting institutions.
+
+Figure~\ref{figGen_xThr} illustrates the dynamics of evolution during a run, and shows why this is the case. First, with a very low value of $x_\mathrm{thr}$, the time to reach consensus is high even in small groups. This makes it more difficult for social individuals to invade a population of asocials (Figure~\ref{figGen_xThr}.C.1). More formally, the expected waiting time for socials to invade asocials in the stochastic simulations increases as $x_\mathrm{thr}$ becomes smaller. This effect is illustrated in the ``Frequency'' graphs (Figure~\ref{figGen_xThr}.C row). Second, once social individuals have invaded then for smaller values of $x_\mathrm{thr}$ they need more discussion events to reach consensus. As discussed above, the more discussion events there are, the more the rules reached at consensus are biased towards the preferences of a small number of leaders. This means that the preferences of followers matter less and so are subject to drift, as illustrated in the ``Punishment'' graph (Figure~\ref{figGen_xThr}.B.1). However, this drift in the preferences of the majority of group members then weakens competition between groups, which occurs via differential migration. In the baseline model, \cite{Powers:2013:a}, individuals in groups that invest just enough into punishment to incentivise cooperation produce more offspring, and then export their preferences for these ``optimal'' institutional rules to other groups. This mechanism functions effectively when migrants have an effect on the institutional rules in their new groups. This was the case in \cite{Powers:2013:a}, where the institutional rules were formed by taking the mean preference of the group members. This is also the case for medium and high $x_\mathrm{thr}$ in our model. However, for low $x_\mathrm{thr}$, followers -- who make up the majority of migrants -- have little effect on the consensus, and their preferences drift. This dilutes competition between the institutions of different groups, and leads to groups choosing rules that invest too little into punishment to incentivise cooperation. When the majority of individuals have little to no say in the institutional rules then the group loses the benefits of the ``wisdom of the crowd'' \cite{Ober:2008:a}, and so can fail to move to more optimal rules that would maintain higher levels of cooperation. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/pt_gen_xThr.pdf}
+    \caption{Illustration of the evolution on a single run of (A.) hierarchy (mean across patches), (B.) institutional rules (dark blue, mean across patches) and individual preferences (light blue, mean across all individuals in the population), and (C.) frequency of each strategy in the population, for (1.) hard political games, (2.) medium political games, and (3.) easy political games (low, average and high $x_\mathrm{thr}$, respectively).}
+    \label{figGen_xThr}
+\end{figure}
+
+\subsection{Sensitivity to parameters}
+Supplementary Figure~S2 shows the effect of varying the benefit of cooperation, $B$. For low $B$, institutional rules are selected that invest a greater proportion of the public good into punishment. However, this greater investment leads to a smaller increase in $K_{\mathrm{s}}$ and hence a smaller group size. On the other hand, for a larger $B$ a smaller proportion of the public good is invested into punishment -- but this smaller proportion is still larger in absolute terms and so can maintain cooperation while allowing groups to grow even larger. The institutional rules thus evolve to match the efficiency of cooperation.
+
+The effects of varying the initial group size, $K_\mathrm{a}$, were studied in \cite{Powers:2013:a}. This must be small to allow social individuals to invade a population of asocials. However, once socials have invaded, their institutionally-supported punishment can maintain cooperation as groups become much larger. The consensus time cost scalar, $I$, is multiplied by the consensus time to translate the time into a fitness cost. If this is 0 then cooperation-promoting institutions evolve without hierarchy. Conversely, if it is very large then cooperation-promoting institutions cannot evolve, because the fitness cost of having an institution is too large. The number of listeners during a discussion event, $N_\mathrm{l}$, affects how quickly a group reaches consensus. For larger $N_\mathrm{l}$, consensus is reached quicker \cite{Perret:2022:a}. Empirically, we would expect $N_\mathrm{l}$ to be larger if groups have more effective communication technology (e.g. writing), or if the political game is itself structured to facilitate opinion formation, e.g. through individuals meeting in organised assemblies to exchange views.  
+
+\section{Discussion}
+Our model demonstrates that, under a wide range of conditions, the evolution of hierarchy can result from the need to facilitate the implementation of cooperation-promoting institutions. As groups grow in size, due to the benefits of their cooperative activities, then the process of negotiating and forming their institutional rules -- their political game -- becomes more costly. This scalar stress \cite{Johnson:1982:a} favours the evolution of hierarchy to reduce the cost of rule formation 
+
+Our model provides a plausible mechanism to explain the broad-scale trend of human social evolution, which has seen human societies get larger and more hierarchically structured \cite{Boehm:1999:a,Price:1995:a,Price:2010:a,Turchin:2018:a}, particularly since the development of agriculture \cite{Bocquet-Appel:2011:a,Currie:2020:a,Turchin:2022:a}. 
+More fine-scaled observations also support the predictions of our model. For example, archaeological information from Mesa Verde in southwest US documents an association between increasing settlement populations and increasing evidence of hierarchy \cite{Kohler:2008:a}. Agriculture in the form of crop production is thought to be particularly important driver of this trend due to the fact it created a more sedentary lifestyle and increased population densities, thus increasing scalar stress and presenting new challenges to coordination and collective action that would require new institutional arrangements  \cite{Hunt:1988:a,Trawick:2001:a,Janssen:2012:a,Carballo:2014:a}. However, evidence from non-agrarian contexts also supports our model. For example, comparative evidence from nomadic pastoralists shows that societies with larger camp sizes are associated with greater degrees of social hierarchy \cite{Johnson:1982:a}. Furthermore, \cite{vonReuden:2015:a} presents ethnographic examples from hunter-gatherer societies, which indicate that leadership roles became more prominent during periodic increases in population density. In the Yahgan of Tierra del Fuego, leaders emerged when people congregated to feed on whales, and helped coordinate activities and enforced order, while in Plains Indian bands summer aggregations for buffalo hunting saw the temporary election of a chief to oversee proceedings and police violations of rules. 
+
+Numerous hypotheses have been proposed to explain the evolution of hierarchy in human societies. It is beyond the scope of this paper to cover all these different ideas, or to assess whether our model is better supported empirically than others (see Currie \& Perret, 2023 and Smith et al. 2023, this volume for recent overviews). However, an important contrast is often made between those theories that focus on the benefit of hierarchy to the group as a whole (`functional', `managerial', or `integrative' theories, of which our model is an example), and those that focus on the benefits to those at the top of the hierarchy (`extractive', `despotic', `conflict' theories, e.g. Perret \& Currie this volume). Our approach explicitly invokes the need to establish and modify rules as a key organisational problem that leads to hierarchy. There are many aspects to the process of rule formation, and in modern countries we are used to the idea that there are distinct executive, judicial, and legislative aspects of governance. In smaller scale societies, these distinctions may not be so formalised or separated, and indeed the political game in our model is abstract enough to cover the processes of consensus that occur across these domains. As such our approach potentially provides a more general framework that can unite other `functional' theories for the evolution of leadership and hierarchy \cite{Calvert:1992:a,vanVugt:2006:a,King:2009:a,Hooper:2010:a,Sterelny:2013:a} , which can be thought of as examples of playing a political game to establish effective rules (e.g. deciding rules over construction of irrigation systems \cite{Wittfogel:1957:a,Nichols:1993:a,Spencer:1993:a,Carballo:2014:a}, harvesting of marine resources \cite{Arnold:1995:a,Friesen:1999:a,Alvard:2002:a}, or defensive warfare \cite{Boone:1992:a,Roscoe:2013:a}).
+
+Our model focuses on the number of people involved in the political game, and only considers one rule on which consensus formation occurs. However, it is also important to note that as the size of a group increases, the number of rules proliferates. For example, the small-scale Kapauku Papuan society has around 120 rules regulating areas from property rights through to punishment for murder. Although this number could be pushed up if several other informal norms that guide behaviour in different contexts are included, it is still orders of magnitude smaller than that seen in modernised countries, e.g. 40,000 new laws took effect in the United States in 2014 alone \cite{Singh:2017:a}). Although we do not explicitly model different rules, we can speculate that having multiple rules on which consensus needs to be reached has a similar effect to having more difficult political games (i.e. $x_\mathrm{thr}$ is smaller). This potentially has implications for the nature of hierarchy as it is captured in our model, and as it plays out in the real world. In our model, individuals evolve to become more like leaders or more like followers based on their individual traits. This type of ``achieved'' leadership is well-documented ethnographically in small-scale societies \cite{vonReuden:2015:a}. However, as our results show, this informal leadership has limitations as the political game becomes more difficult (i.e. when $x_\mathrm{thr}$ becomes smaller). Formal leadership, where there is a specific designated leader (or leaders) in a group, may overcome this. For example, a designated leader may have more time to devote to spend on thinking about what effective rules can be, or assessing how well existing rules are playing out or being observed. Also a designated leader may learn rules from the leaders of other successful groups, avoiding the need for successful rules to spread via differential migration, with the problems that entails for difficult political games. The flip slide, though, is that more formal leadership may lead to economic inequality within groups, with leaders monopolising the group's resources for themselves and their kin. We have not explicitly considered economic inequality in our model. Other models have studied this in the context of leaders helping to solve coordination or collective action \emph{economic} games, and then taking a (possibly disproportionate) share of the benefits \cite{Hooper:2010:a,Powers:2014:a,Gavrilets:2014:a}. These existing models have not, though, studied the roles of leaders in reducing the cost of playing \emph{political} games. As societies grew larger they did indeed formalise leadership into a hereditary position (chiefdoms), and ultimately multiple layers of hierarchy and more specialised bureaucratic offices (states) \cite{Spencer:2010:a}. In future, these kinds of changes in the nature of hierarchical relationships can be explored by extending the meta-model approach used here further to include a ``constitutional'' game, which establishes the conditions under which the political game take place, including who gets to take part \cite{Ostrom:1994:a,Hurwicz:1996:a,Reiter:1996:a}. 
+
+\end{linenumbers}
+
+\textbf{Author contributions}: STP, CP and TC designed the study, STP implemented the model, STP and CP conducted the analysis, STP, CP and TC wrote the manuscript.
+
+\textbf{Author Information:} The authors declare no competing financial interests. Correspondence and requests for materials should be addressed to STP (e-mail: S.Powers@napier.ac.uk).
+
+\textbf{Data availability statement}: The code is available online at\\ \url{https://github.com/simon-powers/Co-evolution-of-institutions-and-hierarchy}.
+
+\textbf{Funding statement:} C.P. \& T.E.C. are supported by funding awarded to T.E.C. from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation programme (\textit{The Cultural Evolution \& Ecology of Institutions}, Grant Agreement 716212).
+
+\begin{thebibliography}{99}
+
+\bibitem{North:1990:a}
+North DC. 1990 {\em Institutions, Institutional Change and Economic Performance
+  (Political Economy of Institutions and Decisions)}.
+Cambridge University Press.
+
+\bibitem{Ostrom:1990:a}
+Ostrom E. 1990 {\em Governing the Commons : {The} Evolution of Institutions for
+  Collective Action}.
+Cambridge, UK: Cambridge University Press.
+
+\bibitem{Greif:2006:a}
+Greif A. 2006 {\em Institutions and the Path to the Modern Economy: Lessons
+  from Medieval Trade}.
+Cambridge, UK: Cambridge University Press.
+
+\bibitem{Singh:2017:a}
+Singh M, Wrangham R, Glowacki L. 2017  Self-interest and the design of rules.
+  {\em Hum. Nature} \textbf{28}, 457--480.
+(\href{http://dx.doi.org/10.1007/s12110-017-9298-7}{10.1007/s12110-017-9298-7})
+
+\bibitem{Powers:2021:a}
+Powers ST, van Schaik CP, Lehmann L. 2021  Cooperation in large-scale human
+  societies—{What}, if anything, makes it unique, and how did it evolve?.
+  {\em Evol. Anthropol.} \textbf{30},
+  280--293.
+\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/evan.21909
+  (\href{http://dx.doi.org/10.1002/evan.21909}{10.1002/evan.21909})
+
+\bibitem{Kaplan:2009:a}
+Kaplan HS, Hooper PL, Gurven M. 2009  The evolutionary and ecological roots of
+  human social organization. {\em Philos. T. R. Soc. B.}
+  \textbf{364}, 3289--3299.
+(\href{http://dx.doi.org/10.1098/rstb.2009.0115}{10.1098/rstb.2009.0115})
+
+\bibitem{Testart:1987:a}
+Testart A. 1987  Game Sharing Systems and Kinship Systems Among
+  Hunter-Gatherers. {\em Man} \textbf{22}, 287--304.
+
+\bibitem{Guala:2012:a}
+Guala F. 2012  Reciprocity: Weak or strong? {What} punishment experiments do
+  (and do not) demonstrate. {\em Behav. Brain. Sci.} \textbf{35}, 1--15.
+(\href{http://dx.doi.org/10.1017/s0140525x11000069}{10.1017/s0140525x11000069})
+
+\bibitem{Boehm:1999:a}
+Boehm C. 1999 {\em Hierarchy in the Forest: {The} Evolution of Egalitarian
+  Behavior}.
+Cambridge, MA: Harvard University Press.
+
+\bibitem{Reiter:1996:a}
+Reiter S. 1996  On endogenous economic regulation. {\em Economic Design}
+  \textbf{2}, 211--243.
+(\href{http://dx.doi.org/10.1007/bf02499134}{10.1007/bf02499134})
+
+\bibitem{Acemoglu:2011:a}
+Acemoglu D, Robinson. 2011 {\em Why Nations Fail: {The} Origins of Power,
+  Prosperity and Poverty}.
+New York: Crown Publishers.
+
+\bibitem{Bocquet-Appel:2011:a}
+Bocquet-Appel JP. 2011  When the World's Population Took Off: {The} Springboard
+  of the {Neolithic Demographic Transition}. {\em Science} \textbf{333},
+  560--561.
+(\href{http://dx.doi.org/10.1126/science.1208880}{10.1126/science.1208880})
+
+\bibitem{Price:1995:a}
+Price TD. 1995  Social Inequality at the Origins of Agriculture. In Price TD,
+  Feinman GM, editors, {\em Foundations of Social Inequality} ,  pp. 129--151.
+  New York: Plenum Press.
+
+\bibitem{Price:2010:a}
+Price TD, Bar-Yosef O. 2010  Traces of Inequality at the Origins of Agriculture
+  in the Ancient {Near East}. In Price TD, Feinman GM, editors, {\em Pathways
+  to Power} ,  Fundamental Issues in Archaeology pp. 147--168. New York:
+  Springer.
+(\href{http://dx.doi.org/10.1007/978-1-4419-6300-0\_6}{10.1007/978-1-4419-6300-0\_6})
+
+\bibitem{Turchin:2018:a}
+Turchin P \textit{et al.} 2018 {\em P. Natl. Acad. Sci. USA}
+  \textbf{115}, E144--E151.
+  (\href{http://dx.doi.org/10.1073/pnas.1708800115}{10.1073/pnas.1708800115})
+
+\bibitem{Johnson:1982:a}
+Johnson GA. 1982  Organizational Structure and Scalar Stress. In Renfrew C,
+  Rowlands M, Segraves-Whallon BA, editors, {\em Theory and Explanation in
+  Archaeology: {The} Southampton conference} ,  pp. 389--420. New York:
+  Academic Press.
+
+\bibitem{Johnson:2000:A}
+Johnson AW, Earle T. 2000 {\em The Evolution of Human Societies: From Foraging
+  Group to Agrarian State}.
+Stanford, CA: Stanford University Press second edition.
+
+\bibitem{Fukuyama:2011:a}
+Fukuyama F. 2011 {\em The Origins of Political Order}.
+London, UK: Profile Books.
+
+\bibitem{Richerson:2016:a}
+Richerson P \textit{et al.} 2016
+  Cultural group selection plays an essential role in explaining human
+  cooperation: A sketch of the evidence. {\em Behav. Brain. Sci.} \textbf{39},
+  {e30}+.
+(\href{http://dx.doi.org/10.1017/s0140525x1400106x}{10.1017/s0140525x1400106x})
+
+\bibitem{Powers:2013:a}
+Powers ST, Lehmann L. 2013  The co-evolution of social institutions,
+  demography, and large-scale human cooperation. {\em Ecol. Lett.}
+  \textbf{16}, 1356--1364.
+(\href{http://dx.doi.org/10.1111/ele.12178}{10.1111/ele.12178})
+
+\bibitem{Currie:2021:a}
+Currie TE, Campenni M, Flitton A, Njagi T, Ontiri E, Perret C, Walker L. 2021
+  The cultural evolution and ecology of institutions. {\em Philos. T. R. Soc. B.} \textbf{376},
+  20200047.
+Publisher: Royal Society
+  (\href{http://dx.doi.org/10.1098/rstb.2020.0047}{10.1098/rstb.2020.0047})
+
+\bibitem{Gavrilets:2022:a}
+Gavrilets S, Currie TE. 2022  Mathematical models of the evolution of
+  institutions.
+  (\href{http://dx.doi.org/10.31235/osf.io/kuxvd}{10.31235/osf.io/kuxvd})
+
+\bibitem{Hurwicz:1996:a}
+Hurwicz L. 1996  Institutions as families of game forms. {\em Jpn. Econ. Rev.
+  (Oxf)} \textbf{47}, 113--132.
+(\href{http://dx.doi.org/10.1111/j.1468-5876.1996.tb00038.x}{10.1111/j.1468-5876.1996.tb00038.x})
+
+\bibitem{Powers:2016:a}
+Powers ST, van Schaik CP, Lehmann L. 2016  How institutions shaped the last
+  major evolutionary transition to large-scale human societies. {\em Philos. T. R. Soc. B.} \textbf{371}.
+
+\bibitem{Ober:2008:a}
+Ober J. 2008 {\em Democracy and Knowledge: Innovation and Learning in Classical
+  Athens}.
+Princeton, NJ: Princeton University Press.
+
+\bibitem{Alvard:2002:a}
+Alvard MS, Nolin DA. 2002  Rousseau's Whale Hunt? {Coordination} among
+  {big--game} Hunters. {\em Curr. Anthropol.} \textbf{43}, 533--559.
+(\href{http://dx.doi.org/10.1086/341653}{10.1086/341653})
+
+\bibitem{Boyd:1985:a}
+Boyd R, Richerson PJ. 1985 {\em Culture and the Evolutionary Process}.
+Chicago: University of Chicago Press.
+
+\bibitem{Turchin:2013:a}
+Turchin P, Currie TE, Turner EAL, Gavrilets S. 2013  War, space, and the
+  evolution of {Old World} complex societies. {\em P. Natl. Acad. Sci. USA}
+  \textbf{110}, 16384--16389.
+(\href{http://dx.doi.org/10.1073/pnas.1308825110}{10.1073/pnas.1308825110})
+
+\bibitem{Powers:2018:a}
+Powers ST. 2018  The institutional approach for modeling the evolution of human
+  societies. {\em Artif. Life} \textbf{24}, 10--28.
+  (\href{http://dx.doi.org/10.1162/ARTL\_a\_00251}{10.1162/ARTL\_a\_00251})
+
+\bibitem{Gavrilets:2016:a}
+Gavrilets S, Auerbach J, van Vugt M. 2016  Convergence to consensus in
+  heterogeneous groups and the emergence of informal leadership. {\em
+  Sci. Rep-UK} \textbf{6}, 29704.
+Number: 1 Publisher: Nature Publishing Group
+  (\href{http://dx.doi.org/10.1038/srep29704}{10.1038/srep29704})
+
+\bibitem{Perret:2022:a}
+Perret C, Powers ST. 2022  An investigation of the role of leadership in
+  consensus decision-making. {\em J. Theor. Biol.} \textbf{543},
+  111094.
+(\href{http://dx.doi.org/10.1016/j.jtbi.2022.111094}{10.1016/j.jtbi.2022.111094})
+
+\bibitem{Johnstone:2011:a}
+Johnstone RA, Manica A. 2011  Evolution of personality differences in
+  leadership. {\em P. Natl. Acad. Sci. USA}
+  \textbf{108}, 8373--8378.
+(\href{http://dx.doi.org/10.1073/pnas.1102191108}{10.1073/pnas.1102191108})
+
+\bibitem{vonReuden:2014:a}
+von Rueden C, Gurven M, Kaplan H, Stieglitz J. 2014  Leadership in an
+  {Egalitarian} {Society}. {\em Hum. Nature} \textbf{25}, 538--566.
+(\href{http://dx.doi.org/10.1007/s12110-014-9213-4}{10.1007/s12110-014-9213-4})
+
+\bibitem{Perret:2020:a}
+Perret C, Hart E, Powers ST. 2020  From disorganized equality to efficient
+  hierarchy: how group size drives the evolution of hierarchy in human
+  societies. {\em P. R. Soc. B.}
+  \textbf{287}, 20200693.
+  (\href{http://dx.doi.org/10.1098/rspb.2020.0693}{10.1098/rspb.2020.0693})
+
+\bibitem{Baumard:2010:a}
+Baumard N. 2010  {Has punishment played a role in the evolution of cooperation?
+  A critical review}. {\em Mind \& Society} \textbf{9}, 171--192.
+(\href{http://dx.doi.org/10.1007/s11299-010-0079-9}{10.1007/s11299-010-0079-9})
+
+\bibitem{Boyd:2003:a}
+Boyd R, Gintis H, Bowles S, Richerson PJ. 2003  The evolution of altruistic
+  punishment. {\em P. Natl. Acad. Sci. USA} \textbf{100}, 3531--3535.
+
+\bibitem{Powers:2018:b}
+Powers ST, Ekárt A, Lewis PR. 2018  Modelling enduring institutions: {The}
+  complementarity of evolutionary and agent-based approaches. {\em Cogn.  Syst. Res.} \textbf{52}, 67--81.
+(\href{http://dx.doi.org/10.1016/j.cogsys.2018.04.012}{10.1016/j.cogsys.2018.04.012})
+
+\bibitem{Wright:1931:a}
+Wright S. 1931  Evolution in {Mendelian} populations. {\em Genetics}
+  \textbf{16}, 97--159.
+
+\bibitem{Hewlett:2011:a}
+Hewlett BS, Fouts HN, Boyette AH, Hewlett BL. 2011  Social learning among Congo
+  Basin hunter--gatherers. {\em Philos. T. R. Soc. B.} \textbf{366}, 1168--1178.
+(\href{http://dx.doi.org/10.1098/rstb.2010.0373}{10.1098/rstb.2010.0373})
+
+\bibitem{Cavalli-Sforza:1981:a}
+Cavalli-Sforza LL, Feldman MW. 1981 {\em Cultural Transmission and Evolution: A
+  Quantitative Approach}.
+Princeton, New Jersey: Princeton University Press.
+
+\bibitem{Chow:2012:a}
+Chow Y, Hsieh J. 2012  On multidimensional {discrete-time} {Beverton---Holt}
+  competition models. {\em J. Differ. Equ. Appl.}
+  pp. 1--16.
+(\href{http://dx.doi.org/10.1080/10236198.2012.656618}{10.1080/10236198.2012.656618})
+
+\bibitem{Druckman:2000:a}
+Druckman JN, Lupia A. 2000  Preference {Formation}. {\em Annu. Rev. Polit. Sci.} \textbf{3}, 1--24.
+\_eprint: https://doi.org/10.1146/annurev.polisci.3.1.1
+  (\href{http://dx.doi.org/10.1146/annurev.polisci.3.1.1}{10.1146/annurev.polisci.3.1.1})
+
+\bibitem{Hatemi:2009:a}
+Hatemi PK, Funk CL, Medland SE, Maes HM, Silberg JL, Martin NG, Eaves LJ. 2009
+  Genetic and {Environmental} {Transmission} of {Political} {Attitudes} {Over}
+  a {Life} {Time}. {\em J. Polit.} \textbf{71}, 1141--1156.
+Publisher: [The University of Chicago Press, Southern Political Science
+  Association]
+  (\href{http://dx.doi.org/10.1017/s0022381609090938}{10.1017/s0022381609090938})
+
+\bibitem{Boyd:1992:a}
+Boyd R, Richerson PJ. 1992  Punishment allows the evolution of cooperation (or
+  anything else) in sizable groups. {\em Ethol. and Sociobiol.}
+  \textbf{13}, 171--195.
+(\href{http://dx.doi.org/10.1016/0162-3095(92)90032-y}{10.1016/0162-3095(92)90032-y})
+
+\bibitem{Currie:2020:a}
+Currie TE, Turchin P, Turner E, Gavrilets S. 2020  Duration of agriculture and
+  distance from the steppe predict the evolution of large-scale human societies
+  in {Afro}-{Eurasia}. {\em Humanit. Soc. Sci. Commun.} \textbf{7}, 1--8.
+Number: 1 Publisher: Palgrave
+  (\href{http://dx.doi.org/10.1057/s41599-020-0516-2}{10.1057/s41599-020-0516-2})
+
+\bibitem{Turchin:2022:a}
+Turchin P \textit{et al.} 2022  Disentangling the
+  evolutionary drivers of social complexity: {A} comprehensive test of
+  hypotheses. {\em Science Advances} \textbf{8}, eabn3517.
+  (\href{http://dx.doi.org/10.1126/sciadv.abn3517}{10.1126/sciadv.abn3517})
+
+\bibitem{Kohler:2008:a}
+Kohler TA, Glaude MP, Bocquet-Appel JP, Kemp BM. 2008  The {Neolithic}
+  {Demographic} {Transition} in the {U}.{S}. {Southwest}. {\em Am.
+  Antiquity} \textbf{73}, 645--669.
+Publisher: Cambridge University Press
+  (\href{http://dx.doi.org/10.1017/S000273160004734X}{10.1017/S000273160004734X})
+
+\bibitem{Hunt:1988:a}
+Hunt RC. 1988  Size and the Structure of Authority in Canal Irrigation Systems.
+  {\em J. Anthropol. Res.} \textbf{44}, 335--355.
+
+\bibitem{Trawick:2001:a}
+Trawick PB. 2001  Successfully Governing the Commons: {Principles} of Social
+  Organization in an {Andean} Irrigation System. {\em Hum. Ecol.}
+  \textbf{29}, 1--25.
+(\href{http://dx.doi.org/10.1023/a\%253a1007199304395}{10.1023/a\%253a1007199304395})
+
+\bibitem{Janssen:2012:a}
+Janssen MA, Bousquet F, Cardenas JC, Castillo D, Worrapimphong K. 2012  Field
+  experiments on irrigation dilemmas. {\em Agric. Syst.} \textbf{109}, 65--75.
+(\href{http://dx.doi.org/10.1016/j.agsy.2012.03.004}{10.1016/j.agsy.2012.03.004})
+
+\bibitem{Carballo:2014:a}
+Carballo DM, Roscoe P, Feinman GM. 2014  Cooperation and Collective Action in
+  the Cultural Evolution of Complex Societies. {\em J. Archaeol. Method Th.} \textbf{21}, 98--133.
+(\href{http://dx.doi.org/10.1007/s10816-012-9147-2}{10.1007/s10816-012-9147-2})
+
+\bibitem{vonReuden:2015:a}
+von Rueden C, van Vugt M. 2015  Leadership in small-scale societies: {Some}
+  implications for theory, research, and practice. {\em Leadership
+  Quart.} \textbf{26}, 978--990.
+(\href{http://dx.doi.org/10.1016/j.leaqua.2015.10.004}{10.1016/j.leaqua.2015.10.004})
+
+\bibitem{Calvert:1992:a}
+Calvert R. 1992  Leadership and Its Basis in Problems of Social Coordination.
+  {\em Int. Polit. Sci. Rev.} \textbf{13}, 7--24.
+(\href{http://dx.doi.org/10.1177/019251219201300102}{10.1177/019251219201300102})
+
+\bibitem{vanVugt:2006:a}
+Van~Vugt M. 2006  Evolutionary Origins of Leadership and Followership. {\em
+  Pers. Soc. Psychol. Rev.} \textbf{10}, 354--371.
+(\href{http://dx.doi.org/10.1207/s15327957pspr1004\_5}{10.1207/s15327957pspr1004\_5})
+
+\bibitem{King:2009:a}
+King AJ, Johnson DDP, Van~Vugt M. 2009  The Origins and Evolution of
+  Leadership. {\em Curr. Biol.} \textbf{19}, R911--R916.
+(\href{http://dx.doi.org/10.1016/j.cub.2009.07.027}{10.1016/j.cub.2009.07.027})
+
+\bibitem{Hooper:2010:a}
+Hooper PL, Kaplan HS, Boone JL. 2010  A theory of leadership in human
+  cooperative groups. {\em J. Theor. Biol.} \textbf{265}, 633--646.
+(\href{http://dx.doi.org/10.1016/j.jtbi.2010.05.034}{10.1016/j.jtbi.2010.05.034})
+
+\bibitem{Sterelny:2013:a}
+Sterelny K. 2013  Life in interesting times: cooperation and collective action
+  in the Holocene. In Sterelny K, Joyce R, Calcott B, Fraser B, editors, {\em
+  Cooperation and Its Evolution} ,  pp. 89--108. Cambridge, MA: MIT Press.
+
+\bibitem{Wittfogel:1957:a}
+Wittfogel KA. 1957 {\em Oriental Despotism: {A} Comparative Study of Total
+  Power}.
+New Haven: Yale University Press.
+
+\bibitem{Nichols:1993:a}
+Nichols DL, Frederick CD. 1993  Irrigation canals and Chinampas: recent
+  research in the northern {Basin of Mexico}. In Scarborough VL, Isaac BL,
+  editors, {\em Economic aspects of water management in the prehispanic New
+  World. Research in economic anthropology, Supplement 7} ,  pp. 123--150.
+  Greenwich: JAI Press, Inc.
+
+\bibitem{Spencer:1993:a}
+Spencer CS. 1993  Human Agency, Biased Transmission, and the Cultural Evolution
+  of Chiefly Authority. {\em J. Anthropol Archaeol.}
+  \textbf{12}, 41--74.
+(\href{http://dx.doi.org/10.1006/jaar.1993.1002}{10.1006/jaar.1993.1002})
+
+\bibitem{Arnold:1995:a}
+Arnold JE. 1995  Transportation Innovation and Social Complexity among Maritime
+  Hunter-Gatherer Societies. {\em American Anthropologist} \textbf{97},
+  733--747.
+(\href{http://dx.doi.org/10.1525/aa.1995.97.4.02a00150}{10.1525/aa.1995.97.4.02a00150})
+
+\bibitem{Friesen:1999:a}
+Friesen TM. 1999  Resource structure, scalar stress, and the development of
+  {Inuit} social organization. {\em World Archaeol.} \textbf{31}, 21--37.
+(\href{http://dx.doi.org/10.1080/00438243.1999.9980430}{10.1080/00438243.1999.9980430})
+
+\bibitem{Boone:1992:a}
+Boone JL. 1992  Competition, Cooperation and the Development of Social
+  Hierarchies. In Smith EA, Winterhalder B, editors, {\em Ecology, Evolution
+  and Social Behavior} ,  pp. 301--337. Aldine de Gruyter.
+
+\bibitem{Roscoe:2013:a}
+Roscoe P. 2013  War, Collective Action, and the ``Evolution'' of Human
+  Polities. In Carballo DM, editor, {\em Cooperation and collective action:
+  archaeological perspectives} , . Boulder, CO: University Press of Colorado.
+
+\bibitem{Powers:2014:a}
+Powers ST, Lehmann L. 2014  An evolutionary model explaining the {Neolithic}
+  transition from egalitarianism to leadership and despotism. {\em P. R. Soc. B.} \textbf{281}, 20141349.
+(\href{http://dx.doi.org/10.1098/rspb.2014.1349}{10.1098/rspb.2014.1349})
+
+\bibitem{Gavrilets:2014:a}
+Gavrilets S, Fortunato L. 2014  A solution to the collective action problem in
+  between-group conflict with within-group inequality. {\em Nat. Commun.}
+  \textbf{5}, 3526.
+Number: 1 Publisher: Nature Publishing Group
+  (\href{http://dx.doi.org/10.1038/ncomms4526}{10.1038/ncomms4526})
+
+\bibitem{Spencer:2010:a}
+Spencer CS. 2010  Territorial expansion and primary state formation. {\em
+  P. Natl. Acad. Sci. USA} \textbf{107}, 7119--7126.
+(\href{http://dx.doi.org/10.1073/pnas.1002470107}{10.1073/pnas.1002470107})
+
+\bibitem{Ostrom:1994:a}
+Ostrom E, Gardner R, Walker J. 1994 {\em Rules, Games, \& Common-Pool
+  Resources}.
+Ann Arbor: University of Michigan Press.
+
+\end{thebibliography}
+
+
+\end{document}
